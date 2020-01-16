@@ -32,11 +32,15 @@ class Song
   end
 
   def self.find_by_name(name)
-    @@all.find{|x| x.name == name}
+    @@all.find{|s| s.name == name}
   end
 
   def self.find_or_create_by_name(name)
       self.find_by_name(name) || self.create_by_name(name)
+  end
+
+  def self.alphabetical()
+    @@all.sort_by{|s| s.name}
   end
 
 
